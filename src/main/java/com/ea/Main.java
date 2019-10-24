@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableList;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WindowType;
+import org.openqa.selenium.chrome.WebDriver; 
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.devtools.Console;
 import org.openqa.selenium.devtools.DevTools;
@@ -31,27 +32,27 @@ public class Main {
 
         //Selenium 4
         System.setProperty("webdriver.chrome.driver", "/Users/karthikkk/ChromeDriver/chromedriver");
-        var chromeDriver = new ChromeDriver();
+        WebDriver chromeDriver = new ChromeDriver();
 
-        var chromeDevTools = chromeDriver.getDevTools();
+        //var chromeDevTools = chromeDriver.getDevTools();
         //Session of ChromeDevTool
-        chromeDevTools.createSession();
+        //chromeDevTools.createSession();
 
         //Enable Network offline
-        enableNetworkOffline(chromeDevTools);
+        //enableNetworkOffline(chromeDevTools);
 
         //Enable Network Online
-        enableNetworkOnline(chromeDevTools);
+        //enableNetworkOnline(chromeDevTools);
 
         //Network Interception
-        interceptNetwork(chromeDevTools);
+        //interceptNetwork(chromeDevTools);
 
         //Inspect Detached network
-        inspectDetached(chromeDevTools);
+        //inspectDetached(chromeDevTools);
 
         //Console Log
         String message = "From ExecuteAutomation";
-        consoleLogs(chromeDevTools, message);
+        consoleLogs(chromeDriver.getDevTools(), message);
         chromeDriver.executeScript("console.log('" + message + "');");
 
 
