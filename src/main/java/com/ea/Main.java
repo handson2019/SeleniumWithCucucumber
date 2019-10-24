@@ -147,42 +147,5 @@ public class Main {
 
     }
 
-    /**
-     * Selenium Misc features
-     * @param chromeDriver
-     */
-    private static void Selenium4MiscFetures(ChromeDriver chromeDriver){
-
-        // New Tab
-        var newTab = chromeDriver.switchTo().newWindow(WindowType.TAB);
-        newTab.get("http://executeautomation.com/demosite/Login.html");
-
-        //login
-        newTab.findElement(By.name("UserName")).sendKeys("admin");
-        newTab.findElement(By.name("Password")).sendKeys("admin");
-        newTab.findElement(By.name("Login")).submit();
-
-        var checkbox = chromeDriver.findElement(withTagName("input").below(By.name("Male")).toLeftOf(By.name("Hindi")));
-        checkbox.click();
-        System.out.println(checkbox.getAttribute("name"));
-
-
-        var txtIntial = chromeDriver.findElement(withTagName("input")
-                .below(By.id("TitleId"))
-                .above(By.id("FirstName")));
-
-        txtIntial.sendKeys("KK");
-
-        //list of elements
-        var lstElements = chromeDriver.findElements(withTagName("input")
-                .below(By.xpath("//h2[text()=' User Form ']"))
-                .above(By.name("Save")));
-
-        var elements = lstElements
-                .stream()
-                .map(x -> x.getAttribute("input"));
-
-        //should be 7
-        System.out.println(elements.count());
-    }
+    
 }
