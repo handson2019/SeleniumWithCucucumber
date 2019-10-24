@@ -34,25 +34,25 @@ public class Main {
         System.setProperty("webdriver.chrome.driver", "/Users/karthikkk/ChromeDriver/chromedriver");
         WebDriver chromeDriver = new ChromeDriver();
 
-        //var chromeDevTools = chromeDriver.getDevTools();
+        DevTools chromeDevTools = chromeDriver.getDevTools();
         //Session of ChromeDevTool
-        //chromeDevTools.createSession();
+        chromeDevTools.createSession();
 
         //Enable Network offline
-        //enableNetworkOffline(chromeDevTools);
+        enableNetworkOffline(chromeDevTools);
 
         //Enable Network Online
-        //enableNetworkOnline(chromeDevTools);
+        enableNetworkOnline(chromeDevTools);
 
         //Network Interception
-        //interceptNetwork(chromeDevTools);
+        interceptNetwork(chromeDevTools);
 
         //Inspect Detached network
-        //inspectDetached(chromeDevTools);
+        inspectDetached(chromeDevTools);
 
         //Console Log
         String message = "From ExecuteAutomation";
-        consoleLogs(chromeDriver.getDevTools(), message);
+        consoleLogs(chromeDevTools, message);
         chromeDriver.executeScript("console.log('" + message + "');");
 
 
